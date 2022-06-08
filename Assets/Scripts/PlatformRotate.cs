@@ -40,8 +40,15 @@ public class PlatformRotate : MonoBehaviour
 
         if (vec.x < 180 && vec.x > maxRotate) vec.x = maxRotate;
         if (vec.x > 180 && vec.x < 360 - maxRotate) vec.x = 360 - maxRotate;
+
+        if (mode == 2)
+        {
+            if (vec.z < 180 && vec.z > maxRotate) vec.z = maxRotate;
+            if (vec.z > 180 && vec.z < 360 - maxRotate) vec.z = 360 - maxRotate;
+        }
+        else vec.z = 0f;
+
         vec.y = -45;
-        vec.z = 0;
 
         _transform.rotation = Quaternion.Euler(vec);
     }

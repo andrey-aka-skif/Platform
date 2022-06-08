@@ -6,8 +6,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private TMP_Dropdown dropdownMode;
     [SerializeField] private TMP_Text moneyText;
 
-    private void Start()
+    private void Awake()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SettingsData.coins = PlayerPrefs.GetInt("Coins");
         moneyText.text = $"Coins: {SettingsData.coins}";
         ResetMode();
