@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,10 +9,12 @@ public class Void : MonoBehaviour
     [SerializeField] private Animator losePanel;
     [SerializeField] private TMP_Text coinsText;
     [SerializeField] private TMP_Text maxCoinsText;
+    private AdsController _adsController;
 
     private void Awake()
     {
         _stop = false;
+        _adsController = FindObjectOfType<AdsController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,5 +30,8 @@ public class Void : MonoBehaviour
         losePanel.SetTrigger(Open);
         coinsText.text = "Coins: " + coins;
         maxCoinsText.text = "Max coins: " + PlayerPrefs.GetInt("MaxCoins");
+
+        if (Random.Range(1, 3) == 1) _adsController.ShowAd();
+        //_adsController.ShowAd();
     }
 }

@@ -836,7 +836,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b86e06db6e2368419a5174a83890016, type: 2}
+  - {fileID: 2100000, guid: 5b1b1daa3e0a3204682033a125596b05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -873,14 +873,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296699080}
-  m_LocalRotation: {x: 0.0012899718, y: -0.38268307, z: 0.0005343238, w: 0.92387867}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 2, y: 4, z: 0.5}
   m_LocalScale: {x: 3.2, y: 0.3, z: 3.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0.16, y: -45, z: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1001 &361099605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2274,7 +2274,7 @@ Transform:
   - {fileID: 167235868}
   - {fileID: 1113591762}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1219024601
 PrefabInstance:
@@ -3889,6 +3889,7 @@ GameObject:
   - component: {fileID: 1820845877}
   - component: {fileID: 1820845879}
   - component: {fileID: 1820845880}
+  - component: {fileID: 1820845883}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3921,7 +3922,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1820845879
 MonoBehaviour:
@@ -3948,6 +3949,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee1f1d7405acb04d9c517b577ba9b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuSceneInedx: 0
+  ShopSceneInedx: 1
+  PlaySceneInedx: 2
+--- !u!114 &1820845883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820845876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1674c16ce18344facd9fa87db133af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 1
+  gameId: 4790578
+  missVideo: Interstitial_Android
+  fullVideo: Rewarded_Android
+  banner: Banner_Android
 --- !u!1 &1835904048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,7 +4367,7 @@ Transform:
   - {fileID: 636763001}
   - {fileID: 1989935975}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2047367464
 PrefabInstance:
