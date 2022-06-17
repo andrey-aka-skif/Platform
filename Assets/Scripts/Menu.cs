@@ -5,6 +5,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown dropdownMode;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private GameObject msgBox;
 
     private void Awake()
     {
@@ -18,5 +19,24 @@ public class Menu : MonoBehaviour
     {
         SettingsData.mode = dropdownMode.value;
         print(dropdownMode.value + " - " + SettingsData.mode);
+    }
+
+    public void ShowMsgBox()
+    {
+        msgBox.SetActive(true);
+    }
+    
+    public void ImSure()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Item0", 1);
+        for (var i = 1; i < 100; i++) PlayerPrefs.SetInt("Item" + i, 0);
+        msgBox.SetActive(false);
+        FindObjectOfType<SceneLoader>().Reload();
+    }
+
+    public void ImNotSure()
+    {
+        msgBox.SetActive(false);
     }
 }

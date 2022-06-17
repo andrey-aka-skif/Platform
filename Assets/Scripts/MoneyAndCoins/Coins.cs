@@ -26,7 +26,8 @@ public class Coins : MonoBehaviour
         yield return new WaitForSecondsRealtime(sleepTimeAtStart);
         while (!Stop)
         {
-            yield return new WaitForSecondsRealtime(Random.Range(minTimeSpawn, maxTimeSpawn));
+            yield return new WaitForSecondsRealtime(
+                Random.Range(minTimeSpawn, maxTimeSpawn - SettingsData.mode * 0.5f));
 
             var coin = randomCoins[Random.Range(0, randomCoins.Length)];
             var spawnVector = randomSpawnPoints[Random.Range(0, randomSpawnPoints.Length)].position;
@@ -40,7 +41,7 @@ public class Coins : MonoBehaviour
     private IEnumerator AddMoney()
     {
         yield return new WaitForSeconds(1);
-        SettingsData.coins += Random.Range(minAddCoins, maxAddCoins);
+        SettingsData.coins += Random.Range(minAddCoins, maxAddCoins + Mathf.RoundToInt(SettingsData.mode * 1.5f));
         money.moneyText.text = SettingsData.coins.ToString();
     }
 }
