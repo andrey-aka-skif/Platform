@@ -12,10 +12,15 @@ public class PlatformRotate : MonoBehaviour
 
     private Transform _transform;
 
+
     private void Awake()
     {
         mode = SettingsData.mode;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
+    private void Start()
+    {
         _transform = transform;
 
         _scale = mode == 0 ? 1.2f : 1;
@@ -23,6 +28,16 @@ public class PlatformRotate : MonoBehaviour
         var localScale = _transform.localScale;
         localScale = new Vector3(localScale.x * _scale, 0.5f, localScale.z * _scale);
         _transform.localScale = localScale;
+
+        switch (SettingsData.setTextureIndex)
+        {
+            case 2:
+                rotateVectorFactor *= 0.75f;
+                break;
+            case 4:
+                rotateVectorFactor *= 0.5f;
+                break;
+        }
     }
 
     private void Update()

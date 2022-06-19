@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 public class PlatformTexture : MonoBehaviour
 {
     [SerializeField] private Texture[] textureMaterials;
-    [SerializeField] public int TextureIndex;
+    public static int textureIndex;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if(FindObjectsOfType<PlatformTexture>().Length > 1) Destroy(gameObject);
+        if (FindObjectsOfType<PlatformTexture>().Length > 1) Destroy(gameObject);
     }
 
     private void TrySetTexture()
@@ -17,7 +17,7 @@ public class PlatformTexture : MonoBehaviour
         try
         {
             var platform = FindObjectOfType<PlatformRotate>().GetComponent<Renderer>().material;
-            platform.mainTexture = textureMaterials[TextureIndex];
+            platform.mainTexture = textureMaterials[textureIndex];
         }
         catch
         {

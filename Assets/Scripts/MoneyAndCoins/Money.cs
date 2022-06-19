@@ -8,6 +8,7 @@ public class Money : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.SetInt("Coins", 10000);
         SettingsData.coins = PlayerPrefs.GetInt("Coins");
         Coins = SettingsData.coins;
         moneyText.text = SettingsData.coins.ToString();

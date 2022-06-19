@@ -18,12 +18,12 @@ public class ShopScroll : MonoBehaviour
     private void FixedUpdate()
     {
         // if the scroll start is not within the object
-        if (!scrollEverywhere)
-            if (_scroll.StartPosition.y > (shop.position.y + shop.sizeDelta.y) / 3 * 2 ||
-                _scroll.StartPosition.y < Mathf.Abs(shop.position.y - shop.sizeDelta.y) / 3 * 2 ||
-                _scroll.StartPosition.x < (shop.position.x - shop.sizeDelta.x) / 3 * 2 ||
-                _scroll.StartPosition.x > (shop.position.x + shop.sizeDelta.x) / 3 * 2)
-                return;
+        // if (!scrollEverywhere)
+        //     if (_scroll.StartPosition.y > (shop.position.y + shop.sizeDelta.y) / 3 * 2 ||
+        //         _scroll.StartPosition.y < Mathf.Abs(shop.position.y - shop.sizeDelta.y) / 3 * 2 ||
+        //         _scroll.StartPosition.x < (shop.position.x - shop.sizeDelta.x) / 3 * 2 ||
+        //         _scroll.StartPosition.x > (shop.position.x + shop.sizeDelta.x) / 3 * 2)
+        //         return;
 
         shop.Translate(new Vector2(_scroll.ScrollValue.x * thrust, 0));
         var shopPos = shop.localPosition;

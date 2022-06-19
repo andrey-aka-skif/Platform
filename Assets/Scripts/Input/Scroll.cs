@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -43,7 +42,6 @@ public class Scroll : MonoBehaviour
                 ? new Vector2(Input.mousePosition.x, Input.mousePosition.y) - startTouchPosition
                 : Vector2.zero;
             StartPosition = startTouchPosition;
-            Console.WriteLine(startTouchPosition);
         }
     }
 }

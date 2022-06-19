@@ -1,21 +1,43 @@
-using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     [SerializeField] private AudioSource noMoneySound;
     [SerializeField] private TMP_Text moneyTMPText;
     [SerializeField] private GameObject[] locks;
-    [SerializeField] private ButtonListener[] items;
-    private PlatformTexture _platformTexture;
+    [SerializeField] private Button[] items;
+    [SerializeField] private Button yesButton;
+    [SerializeField] private BuyMsg msg;
+    [SerializeField] private ShowTexture[] _showTextures;
 
     private void Awake()
     {
-        _platformTexture = FindObjectOfType<PlatformTexture>();
         locks[0].SetActive(false);
         for (var i = 1; i < locks.Length; i++) locks[i].SetActive(PlayerPrefs.GetInt($"Item{i}") == 0);
-        foreach (var item in items) item.VoidAwake();
+
+        var index = 0;
+        yesButton.onClick.RemoveAllListeners();
+        yesButton.onClick.AddListener(msg.Yes);
+        foreach (var item in items)
+        {
+            var index1 = index;
+            item.onClick.AddListener(() =>
+            {
+                if (PlayerPrefs.GetInt("Item" + index1) == 1)
+                {
+                    PlatformTexture.textureIndex = index1;
+                    foreach (var showTexture in _showTextures) showTexture.SetTexture(index1);
+                }
+                else
+                {
+                    msg.ShowMsgBox();
+                    msg.SetIndex(index1);
+                }
+            });
+            index++;
+        }
     }
 
     public void SetTextureIndex(int index, int cost)
@@ -37,6 +59,7 @@ public class Shop : MonoBehaviour
             locks[index].SetActive(false);
         }
 
-        _platformTexture.TextureIndex = index;
+        PlatformTexture.textureIndex = index;
+        SettingsData.setTextureIndex = index;
     }
 }

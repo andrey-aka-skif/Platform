@@ -18,6 +18,17 @@ public class Coins : MonoBehaviour
 
     private void Start()
     {
+        switch (SettingsData.setTextureIndex)
+        {
+            case 3:
+                maxAddCoins++;
+                break;
+            case 5:
+                minAddCoins++;
+                maxAddCoins++;
+                break;
+        }
+
         StartCoroutine(Spawn());
     }
 
@@ -41,7 +52,7 @@ public class Coins : MonoBehaviour
     private IEnumerator AddMoney()
     {
         yield return new WaitForSeconds(1);
-        SettingsData.coins += Random.Range(minAddCoins, maxAddCoins + Mathf.RoundToInt(SettingsData.mode * 1.5f));
+        Money.AddMoney(Random.Range(minAddCoins, maxAddCoins + Mathf.RoundToInt(SettingsData.mode * 1.5f)));
         money.moneyText.text = SettingsData.coins.ToString();
     }
 }
