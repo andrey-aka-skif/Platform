@@ -10,7 +10,14 @@ public class SceneLoader : MonoBehaviour
     private void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        SceneManager.sceneLoaded += FindObjectOfType<PlatformTexture>().OnSceneLoaded;
+        try
+        {
+            SceneManager.sceneLoaded += FindObjectOfType<PlatformTexture>().OnSceneLoaded;
+        }
+        catch
+        {
+            // ignored
+        }
     }
 
     public void Reload()

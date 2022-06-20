@@ -52,7 +52,10 @@ public class Coins : MonoBehaviour
     private IEnumerator AddMoney()
     {
         yield return new WaitForSeconds(1);
-        Money.AddMoney(Random.Range(minAddCoins, maxAddCoins + Mathf.RoundToInt(SettingsData.mode * 1.5f)));
+        // if mode - 0, max = maxAddCoins
+        // if mode - 1, max = maxAddCoins + 1
+        // if mode - 2, max = maxAddCoins + 3 
+        Money.AddMoney(Random.Range(minAddCoins, maxAddCoins + Mathf.RoundToInt(SettingsData.mode * 1.4f)));
         money.moneyText.text = SettingsData.coins.ToString();
     }
 }

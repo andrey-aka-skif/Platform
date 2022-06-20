@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button[] items;
     [SerializeField] private Button yesButton;
     [SerializeField] private BuyMsg msg;
-    [SerializeField] private ShowTexture[] _showTextures;
+    [SerializeField] private ShowTexture[] showTextures;
 
     private void Awake()
     {
@@ -22,13 +22,15 @@ public class Shop : MonoBehaviour
         yesButton.onClick.AddListener(msg.Yes);
         foreach (var item in items)
         {
+            item.GetComponentInChildren<TMP_Text>().text = SettingsData.Costs[index].ToString();
+
             var index1 = index;
             item.onClick.AddListener(() =>
             {
                 if (PlayerPrefs.GetInt("Item" + index1) == 1)
                 {
                     PlatformTexture.textureIndex = index1;
-                    foreach (var showTexture in _showTextures) showTexture.SetTexture(index1);
+                    foreach (var showTexture in showTextures) showTexture.SetTexture(index1);
                 }
                 else
                 {

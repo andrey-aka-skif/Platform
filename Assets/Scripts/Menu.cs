@@ -18,7 +18,6 @@ public class Menu : MonoBehaviour
     public void ResetMode()
     {
         SettingsData.mode = dropdownMode.value;
-        print(dropdownMode.value + " - " + SettingsData.mode);
     }
 
     public void ShowMsgBox()
