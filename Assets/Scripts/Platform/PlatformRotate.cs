@@ -8,8 +8,6 @@ public class PlatformRotate : MonoBehaviour
     [SerializeField] private int maxRotateX = 60;
     [SerializeField] private int maxRotateY = 30;
 
-    private float _scale = 1;
-
     private Transform _transform;
 
 
@@ -22,12 +20,6 @@ public class PlatformRotate : MonoBehaviour
     private void Start()
     {
         _transform = transform;
-
-        _scale = mode == 0 ? 1.2f : 1;
-
-        var localScale = _transform.localScale;
-        localScale = new Vector3(localScale.x * _scale, 0.5f, localScale.z * _scale);
-        _transform.localScale = localScale;
 
         switch (SettingsData.setTextureIndex)
         {

@@ -14,15 +14,11 @@ public class PlatformTexture : MonoBehaviour
 
     private void TrySetTexture()
     {
-        try
+        ScriptsHelper.TryOrSkip(() =>
         {
             var platform = FindObjectOfType<PlatformRotate>().GetComponent<Renderer>().material;
             platform.mainTexture = textureMaterials[textureIndex];
-        }
-        catch
-        {
-            // ignored
-        }
+        });
     }
 
     public void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

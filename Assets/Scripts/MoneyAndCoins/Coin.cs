@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private Rigidbody _rbCoin;
+    [SerializeField] private Rigidbody rigidbodyCoin;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
-        _rbCoin = GetComponent<Rigidbody>();
-        _rbCoin.sleepThreshold = 0.0f;
+        rigidbodyCoin.sleepThreshold = 0f;
+    }
+
+    private void OnCollisionEnter()
+    {
+        Destroy(GetComponent<AudioSource>());
+        Destroy(this);
     }
 }

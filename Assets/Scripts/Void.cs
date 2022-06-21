@@ -33,12 +33,12 @@ public class Void : MonoBehaviour
         coinsText.text = "Coins: " + coins;
         maxCoinsText.text = "Max coins: " + PlayerPrefs.GetInt("MaxCoins");
 
-        if (Random.Range(1, 4) == 1) _adsController.ShowAd();
+        if (Random.Range(1, 3) == 1) _adsController.ShowAd();
         //_adsController.ShowAd();
         StartCoroutine(StopTime());
     }
 
-    private IEnumerator StopTime()
+    private static IEnumerator StopTime()
     {
         yield return new WaitForSeconds(2);
         Time.timeScale = 0;

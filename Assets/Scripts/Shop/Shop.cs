@@ -17,9 +17,18 @@ public class Shop : MonoBehaviour
         locks[0].SetActive(false);
         for (var i = 1; i < locks.Length; i++) locks[i].SetActive(PlayerPrefs.GetInt($"Item{i}") == 0);
 
-        var index = 0;
-        yesButton.onClick.RemoveAllListeners();
+        SetYesButton();
+        SetItems();
+    }
+
+    private void SetYesButton()
+    {
         yesButton.onClick.AddListener(msg.Yes);
+    }
+
+    private void SetItems()
+    {
+        var index = 0;
         foreach (var item in items)
         {
             item.GetComponentInChildren<TMP_Text>().text = SettingsData.Costs[index].ToString();

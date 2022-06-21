@@ -6,7 +6,6 @@ public class ShopScroll : MonoBehaviour
     [SerializeField] private RectTransform shop;
     [SerializeField] private int maxX;
     [SerializeField] private int minX;
-    [SerializeField] private bool scrollEverywhere;
 
     private Scroll _scroll;
 
