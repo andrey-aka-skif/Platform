@@ -817,6 +817,7 @@ MonoBehaviour:
   losePanel: {fileID: 1835904050}
   coinsText: {fileID: 891392892}
   maxCoinsText: {fileID: 2112771988}
+  adsController: {fileID: 0}
 --- !u!1 &891392890
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +830,7 @@ GameObject:
   - component: {fileID: 891392893}
   - component: {fileID: 891392892}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Earned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -31.1}
+  m_AnchoredPosition: {x: 0, y: 32}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891392892
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 246'
+  m_text: 'Earned: 246'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4760e22140a8556438156296bbc9d795, type: 2}
   m_sharedMaterial: {fileID: 7316112658298771618, guid: 4760e22140a8556438156296bbc9d795,
@@ -989,7 +990,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 130}
+  m_SizeDelta: {x: 240, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896203906
 MonoBehaviour:
@@ -2096,7 +2097,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 1256, y: 0}
-  m_SizeDelta: {x: 0.0000076293945, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1835904050
 Animator:
@@ -2191,7 +2192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 31.1}
+  m_AnchoredPosition: {x: 0, y: -32}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112771988
