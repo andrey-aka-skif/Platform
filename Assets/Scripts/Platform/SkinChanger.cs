@@ -1,21 +1,23 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Platform), typeof(Renderer))]
-public class SkinChanger : MonoBehaviour
+namespace PlatformGame
 {
-    private Platform _platform;
-    private Renderer _renderer;
-
-    private void Awake()
+    [RequireComponent(typeof(Platform), typeof(Renderer))]
+    public class SkinChanger : MonoBehaviour
     {
-        _platform = GetComponent<Platform>();
-        _platform.SkinApply += SkinApplyed;
+        private Platform _platform;
+        private Renderer _renderer;
 
-        _renderer = GetComponent<Renderer>();
-    }
+        public void Init()
+        {
+            _renderer = GetComponent<Renderer>();
+            _platform = GetComponent<Platform>();
+            _platform.PlatformSkinApply += SkinApplyed;
+        }
 
-    private void SkinApplyed(Texture texture)
-    {
-        _renderer.material.mainTexture = texture;
+        private void SkinApplyed()
+        {
+            _renderer.material.mainTexture = _platform.Skin.Texture;
+        }
     }
 }

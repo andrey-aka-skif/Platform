@@ -2,36 +2,35 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Platform))]
-public class PlatformScaler : MonoBehaviour
+namespace PlatformGame
 {
-    private const float DEPTH_DEFAULT = 0.3f;
-
-    private Platform _platform;
-    private IReadOnlyList<PlatformSizeScalePare> _sizes = new List<PlatformSizeScalePare>();
-    private float _platformDepth;
-
-    private void Awake()
+    [RequireComponent(typeof(Platform))]
+    public class PlatformScaler : MonoBehaviour
     {
-        _platform = GetComponent<Platform>();
-        _platform.PlatformResize += OnPlatformResized;
-    }
+        private const float DEPTH_DEFAULT = 0.3f;
 
-    public void Setup(IReadOnlyList<PlatformSizeScalePare> sizes, float platformDepth = DEPTH_DEFAULT)
-    {
-        _sizes = sizes;
-        _platformDepth = platformDepth;
-    }
+        private Platform _platform;
+        private IReadOnlyList<PlatformSizeScalePare> _sizes = new List<PlatformSizeScalePare>();
+        private float _platformDepth;
 
-    private void OnPlatformResized(PlatformSize size)
-    {
-        float scale = 1;
+        public void Init(IReadOnlyList<PlatformSizeScalePare> sizes, float platformDepth = DEPTH_DEFAULT)
+        {
+            _sizes = sizes;
+            _platformDepth = platformDepth;
+            _platform = GetComponent<Platform>();
+            _platform.PlatformResize += OnPlatformScaled;
+        }
 
-        var sizeQueryResult = _sizes.Where(x => x.Size == size);
+        private void OnPlatformScaled()
+        {
+            float scale = 1;
 
-        if (sizeQueryResult.Any())
-            scale = sizeQueryResult.First().Scale;
+            var sizeQueryResult = _sizes.Where(x => x.Size == _platform.Size);
 
-        transform.localScale = new(scale, _platformDepth, scale);
+            if (sizeQueryResult.Any())
+                scale = sizeQueryResult.First().Scale;
+
+            transform.localScale = new(scale, _platformDepth, scale);
+        }
     }
 }
