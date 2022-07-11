@@ -1,4 +1,6 @@
-﻿namespace PlatformGame.Commands
+﻿using PlatformGame.Infrastructure;
+
+namespace PlatformGame.Commands
 {
     public class PauseCommand : ICommand
     {

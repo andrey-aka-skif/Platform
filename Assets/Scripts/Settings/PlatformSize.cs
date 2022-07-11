@@ -1,6 +1,9 @@
-﻿public enum PlatformSize
+﻿namespace PlatformGame.Setup
 {
-    Big,
-    Medium,
-    Small
+    public enum PlatformSize
+    {
+        Big,
+        Medium,
+        Small
+    }
 }

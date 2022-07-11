@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using PlatformGame.Core;
 
 namespace PlatformGame.UI
 {
